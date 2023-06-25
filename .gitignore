@@ -151,3 +151,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 venv/
+db.sqlite3
+.env
+.vscode/
+.DS_Store
+__pycache__
