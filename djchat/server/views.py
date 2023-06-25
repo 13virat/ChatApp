@@ -13,7 +13,7 @@ class ServiceListViewSet(viewsets.ViewSet):
     def list(self, request):
         category = request.query_params.get("category")
         if category:
-            self.queryset = self.queryset.filter(category=category)
+            self.queryset = self.queryset.filter(category__name=category)
 
         serializer = ServerSerializer(self.queryset, many=True)
         return Response(serializer.data)
