@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     "server",
     # external
     "drf_spectacular",
-    'rest_framework',
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
