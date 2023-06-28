@@ -1,5 +1,4 @@
 from django.db.models import Count
-
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed, ValidationError
 from rest_framework.response import Response
@@ -39,5 +38,5 @@ class ServiceListViewSet(viewsets.ViewSet):
             except ValueError:
                 raise ValidationError(detail="Server value error")
 
-        serializer = ServerSerializer(self.queryset, many=True,context={"num_members":with_num_members})
+        serializer = ServerSerializer(self.queryset, many=True, context={"num_members": with_num_members})
         return Response(serializer.data)

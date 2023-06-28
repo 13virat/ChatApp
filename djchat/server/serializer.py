@@ -10,20 +10,21 @@ class ChannelSerializer(serializers.ModelSerializer):
 
 
 class ServerSerializer(serializers.ModelSerializer):
-    num_members=serializers.SerializerMethodField()
+    num_members = serializers.SerializerMethodField()
     channel_server = ChannelSerializer(many=True)
 
     class Meta:
         model = Server
-        exclude=("member",)
+        exclude = ("member",)
 
-    def get_num_members(self,obj):
-        if hasattr(obj,"num_members"):
+    def get_num_members(self, obj):
+        if hasattr(obj, "num_members"):
             return obj.num_members
         return None
+
     def to_representation(self, instance):
-        data=super().to_representation(instance)
-        num_members=self.context.get("num-members")
+        data = super().to_representation(instance)
+        num_members = self.context.get("num-members")
         if not num_members:
-            data.pop("num_members",None)
+            data.pop("num_members", None)
         return data
