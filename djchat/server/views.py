@@ -1,5 +1,5 @@
 from django.db.models import Count
-from django.shortcuts import render
+
 from rest_framework import viewsets
 from rest_framework.exceptions import AuthenticationFailed, ValidationError
 from rest_framework.response import Response
